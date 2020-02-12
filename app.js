@@ -1,3 +1,43 @@
+function displayDayAndDate() {
+  var now, days, months, year;
+
+  now = new Date();
+
+  days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday"
+  ];
+  months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+  var day = now.getDay();
+  var month = now.getMonth();
+  var date = now.getDate();
+  var year = now.getFullYear();
+
+  document.querySelector(".dayOfWeek").innerHTML = "" + days[day - 1];
+  document.querySelector(".currentDate").innerHTML =
+    months[month] + " " + date + ", " + year;
+}
+
+displayDayAndDate();
+
 let items = [];
 
 function addTask(text) {
