@@ -1,4 +1,4 @@
-function displayDayAndDate() {
+(function displayDayAndDate() {
   var now, days, months, year;
 
   now = new Date();
@@ -18,8 +18,8 @@ function displayDayAndDate() {
     "Mar",
     "Apr",
     "May",
-    "June",
-    "July",
+    "Jun",
+    "Jul",
     "Aug",
     "Sep",
     "Oct",
@@ -34,9 +34,7 @@ function displayDayAndDate() {
   document.querySelector(".dayOfWeek").innerHTML = "" + days[day - 1];
   document.querySelector(".currentDate").innerHTML =
     months[month] + " " + date + ", " + year;
-}
-
-displayDayAndDate();
+})();
 
 let items = [];
 
@@ -55,10 +53,12 @@ function addTask(text) {
     "beforeend",
     `
   <li class="todo-item" data-key="${task.id}">
-  <input id = "${task.id}" type="checkbox" class="styled-checkbox" >
-<label for="${task.id}" class="tick" >${task.text}</label>
- 
-</li>
+    <input id = "${task.id}" type="checkbox" class="styled-checkbox" >
+    <label for="${task.id}" class="tick" >${task.text}</label>
+ <button class= "delete-todo" > 
+ <img src="\\css\\svg\\remove.svg" alt="" />
+ </button>
+ </li>
 
 `
   );
@@ -79,9 +79,18 @@ form.addEventListener("submit", event => {
 
 const list = document.querySelector(".list");
 list.addEventListener("click", event => {
+  const itemKey = event.target.parentElement.dataset.key;
+
   if (event.target.classList.contains("tick")) {
-    const itemKey = event.target.parentElement.dataset.key;
     toggleDone(itemKey);
+  }
+});
+
+list.addEventListener("click", event => {
+  if (event.target.classList.contains("delete-todo")) {
+    const itemKey = event.target.parentElement.dataset.key;
+
+    deleteToDo(itemKey);
   }
 });
 
@@ -96,4 +105,9 @@ function toggleDone(key) {
   } else {
     item.classList.remove("done");
   }
+}
+function deleteToDo(key) {
+  items = items.filter(item => item.id !== Number(key));
+  const item = document.querySelector(`[data-key='${key}']`);
+  item.remove();
 }
