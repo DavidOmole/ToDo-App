@@ -122,6 +122,7 @@ li::after {
   border: 1px solid #10171b;
   border-radius: 3px;
   color: #ddd;
+  transition: ease 0.2s;
 }
 
 .done .styled-checkbox:checked + label::after {
@@ -132,11 +133,11 @@ li::after {
   position: absolute;
   top: -1px;
   left: 7px;
-  transition: ease 10s;
 }
 .done .tick {
   text-decoration: line-through;
   color: #5c5c5c;
+  transition: ease 0.2s;
 }
 .tick {
   color: #ddd;

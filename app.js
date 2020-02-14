@@ -52,7 +52,7 @@ function addTask(text) {
   list.insertAdjacentHTML(
     "beforeend",
     `
-  <li class="todo-item" data-key="${task.id}">
+  <li class="todo-item animated fadeIn faster " data-key="${task.id}">
     <input id = "${task.id}" type="checkbox" class="styled-checkbox" >
     <label for="${task.id}" class="tick" >${task.text}</label>
  <button class= "delete-todo" > 
