@@ -31,7 +31,7 @@
   var date = now.getDate();
   var year = now.getFullYear();
 
-  document.querySelector(".dayOfWeek").innerHTML = "" + days[day - 1];
+  document.querySelector(".dayOfWeek").innerHTML = "- " + days[day - 1] + " -";
   document.querySelector(".currentDate").innerHTML =
     months[month] + " " + date + ", " + year;
 })();
@@ -111,3 +111,8 @@ function deleteToDo(key) {
   const item = document.querySelector(`[data-key='${key}']`);
   item.remove();
 }
+
+(function backgroundHandler() {
+  var element = document.querySelector(".background-Image");
+  element.style.backgroundImage = "url('/css/svg/nightt.png')";
+})();
